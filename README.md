@@ -2,7 +2,7 @@
 Version: 24 October 2015
 
 ## Purpose
-This repository contains the R script, codebook, and readme files as necessary to meet Course Project requirements. The Course Project asks students to take a dataset, tidy the data (where possible), and provide a summary of selected variables.
+This repository contains the R script, codebook, and readme files as necessary to meet Course Project requirements. The Course Project asks students to take a dataset and provide a summary of selected variables, in accordance tidy data principles.
 
 ## Source & License
 This project uses the 'Human Activity Recognition Using Smartphones Dataset' (hereafter, 'UCI HAR Dataset') at: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
@@ -38,6 +38,16 @@ Required R packages that should be installed before  run_analysis.R is used:
 ## Output  
 The output file 'output.txt' is a space-delimited file that summarizes the mean and standard deviation of selected variables for the subjects and activities in the dataset.
 
-'output.txt' is placed into the current working directory.
+'output.txt' is placed into the current working directory, and may be read back into R with a read.table or fread (requires the data.table package) statement, for example:    
+
+```
+testread <- read.table('output.txt', sep=' ', header = TRUE)
+```  
+
+or  
+
+```
+testread <- fread('output.txt')
+```
 
 The output file is equivalent to a Microsoft Excel pivot table of selected mean and standard deviation variables in the dataset, by average. Discussions of how the output file is assembled (including choice and exclusion of variables) are in the codebook.
