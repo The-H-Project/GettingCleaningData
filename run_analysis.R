@@ -1,6 +1,11 @@
 # Coursera R Getting and Cleaning Data Course Project
 # run_analysis.R
+# Version 10/24/2015
 
+# Requires data.table 1.9.6 (dated 9/24/2015) or higher, because of utilization of 
+# the following features
+# fread: uses the new 'col.names' argument to assign column names to read files.
+# dcast: allows the use of multiple value.var columns
 library(plyr)
 library(data.table)
 
@@ -58,6 +63,7 @@ castcolumns <- names(dataset_shrunk)
 NamestoRemove <- c('Participant','Activity')
 castcolumns <- castcolumns[-which(castcolumns %in% NamestoRemove)]
 
+# Create the tabulated summary.
 dataset_output <- dcast.data.table(dataset_shrunk, Participant + Activity ~ 'tBodyAcc-mean()-X', fun.aggregate=mean, value.var=castcolumns)
 
 # Perform some name cleaning on the column labels.
@@ -66,6 +72,6 @@ dataset_output <- dcast.data.table(dataset_shrunk, Participant + Activity ~ 'tBo
 names(dataset_output) <- gsub('_mean_.$', '', names(dataset_output))
 names(dataset_output) <- gsub('\\(\\)', '', names(dataset_output))
 
-castcolumns <- names(dataset_output)
-write.table(dataset_output, file = './UCI HAR Dataset/output.txt', row.names=FALSE)
+# Write the results to table in the current working directory.
+write.table(dataset_output, file = './output.txt', row.names=FALSE)
 
