@@ -1,7 +1,7 @@
 ---
 
 Title: Cookbook for Cousera Getting and Cleaning Data Course Project
-Date: 23 October 2015
+Date: 24 October 2015
 ---
 
 ## Project Description
@@ -75,7 +75,9 @@ This summary dataset is equivalent to a Microsoft Excel pivot table of the tidy 
 
 The 'summary dataset' consists of 68 columns and 180 rows.
 
-### Output Schema
+### Output File and Schema
+The output product is text file 'output.txt', which is placed into the current working directory.
+
 There are 68 variables in the output file.
 
 The first two variables are 'Participant' and 'Activity':
