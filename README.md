@@ -36,7 +36,7 @@ Required R packages that should be installed before  run_analysis.R is used:
 3. The 'run_analysis.R' file is sourced and run within R.
 
 ## Output  
-The output file 'output.txt' is a space-delimited file that summarizes the mean and standard deviation of selected variables for the subjects and activities in the dataset.
+The output file 'output.txt' is a space-delimited file that summarizes the mean and standard deviation of selected variables for the subjects and activities in the dataset. This product is a 'wide-form' of tidy data.
 
 'output.txt' is placed into the current working directory, and may be read back into R with a read.table or fread (requires the data.table package) statement, for example:    
 
