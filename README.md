@@ -36,18 +36,29 @@ Required R packages that should be installed before  run_analysis.R is used:
 3. The 'run_analysis.R' file is sourced and run within R.
 
 ## Output  
-The output file 'output.txt' is a space-delimited file that summarizes the mean and standard deviation of selected variables for the subjects and activities in the dataset. This product is a 'wide-form' of tidy data.
+The output file 'output.txt' is a space-delimited file that summarizes the mean and standard deviation of selected variables for the subjects and activities in the dataset. This product is a 'wide-form' of tidy data, and is equivalent to a Microsoft Excel pivot table of selected mean and standard deviation variables in the dataset, by average. Discussions of how the output file is assembled (including choice and exclusion of variables) are in the codebook.  
 
 'output.txt' is placed into the current working directory, and may be read back into R with a read.table or fread (requires the data.table package) statement, for example:    
 
 ```
 testread <- read.table('output.txt', sep=' ', header = TRUE)
+View(testread)
 ```  
 
 or  
 
 ```
+library(data.table)
 testread <- fread('output.txt')
+View(testread)
 ```
 
-The output file is equivalent to a Microsoft Excel pivot table of selected mean and standard deviation variables in the dataset, by average. Discussions of how the output file is assembled (including choice and exclusion of variables) are in the codebook.
+#### Coursera Course Project Grading
+The code snippet below may be used to download and review the output file submitted for course project grading:
+
+```
+outputaddress <- ('https://s3.amazonaws.com/coursera-uploads/user-85aaf8110952e500fc2a5237/975117/asst-3/190a4b6079fd11e59ea039b478ab2622.txt')
+outputaddress <- sub("^https", "http", outputaddress)
+outputdata <- read.table(url(outputaddress), header = TRUE)
+View(outputdata)
+```
