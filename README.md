@@ -59,6 +59,6 @@ The code snippet below may be used to download and review the output file submit
 ```
 outputaddress <- ('https://s3.amazonaws.com/coursera-uploads/user-85aaf8110952e500fc2a5237/975117/asst-3/190a4b6079fd11e59ea039b478ab2622.txt')
 outputaddress <- sub("^https", "http", outputaddress)
-outputdata <- read.table(url(outputaddress), header = TRUE)
+outputdata <- read.table(url(outputaddress), header = TRUE, check.names = FALSE)
 View(outputdata)
 ```
